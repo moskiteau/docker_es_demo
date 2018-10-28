@@ -1,0 +1,46 @@
+version: '2'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    container_name: elasticsearch
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200
+    networks:
+      - esnet
+  elasticsearch2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    container_name: elasticsearch2
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - esnet
+
+  headPlugin:
+    image: 'tobias74/elasticsearch-head:6'
+    container_name: head
+    ports:
+      - '9100:9100'
+    networks:
+      - esnet
+
+networks:
+  esnet:
