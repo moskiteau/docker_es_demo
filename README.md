@@ -19,7 +19,7 @@ sudo apt-get install curl
 ```
 
 *partir l'image docker*
-[head plugin](http://localhost:9100)
+* [head plugin](http://localhost:9100)
 
 --------------------------------------------------------------------
 
@@ -53,9 +53,9 @@ curl -XDELETE -H "Content-Type: application/json" localhost:9200/movies_test
 ### Chercher
 
 #### Par url et un query_string
-[Star wars](http://localhost:9200/movies/_search?q=star%20wars&pretty)
-[Star wars sur le titre](http://localhost:9200/movies/_search?q=title:star%20wars&pretty)
-[Star wars sur le titre et le directeur est Lucas](http://localhost:9200/movies/_search?q=title:star%20wars%20AND%20director:Lucas&pretty)
+* [Star wars](http://localhost:9200/movies/_search?q=star%20wars&pretty)
+* [Star wars sur le titre](http://localhost:9200/movies/_search?q=title:star%20wars&pretty)
+* [Star wars sur le titre et le directeur est Lucas](http://localhost:9200/movies/_search?q=title:star%20wars%20AND%20director:Lucas&pretty)
 
 
 #### Recherche plus complexe
