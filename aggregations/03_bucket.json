@@ -1,0 +1,23 @@
+{
+  "aggs": {
+    "usa_awards": {
+      "filter": {
+        "term": {
+          "countries.raw": "USA"
+        }
+      },
+      "aggs": {
+        "max_prize": {
+          "max": {
+            "field": "awards.wins"
+          }
+        },
+        "avg_prize": {
+          "avg": {
+            "field": "awards.wins"
+          }
+        }
+      }
+    }
+  }
+}

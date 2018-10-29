@@ -1,0 +1,18 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "director": "spielberg"
+          }
+        }
+      ],
+      "must_not": {
+        "match": {
+          "plot": "dinosaurs"
+        }
+      }
+    }
+  }
+}

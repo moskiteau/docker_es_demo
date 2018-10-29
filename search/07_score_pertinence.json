@@ -1,0 +1,42 @@
+{
+	"size": 20,
+	"from": 0,
+	"query": {
+		"bool": {
+			"must": [{
+				"query_string": {
+					"query": "wars star",
+					"fields": [
+						"title^8",
+						"plot^3",
+            "director^3",
+            "actors^3",
+            "writers^2",
+            "genres^3"
+					],
+					"lenient": true,
+					"use_dis_max": true,
+					"minimum_should_match": "80%"
+				}
+			}],
+			"must_not": [],
+			"should": [{
+				"multi_match": {
+					"query": "wars star",
+					"fields": [
+            "title^8",
+						"plot^3",
+            "director^3",
+            "actors^3",
+            "writers^2",
+            "genres^3"
+					],
+					"lenient": true,
+					"use_dis_max": true,
+					"minimum_should_match": "80%",
+					"type": "phrase"
+				}
+			}]
+		}
+	}
+}

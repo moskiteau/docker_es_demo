@@ -1,0 +1,19 @@
+{
+	"director": "Larry Semon",
+	"writers": ["L. Frank Baum", "Frank Joslyn Baum", "Leon Lee", "Larry Semon", "Leon Lee"],
+	"actors": ["Dorothy Dwan", "Mary Carr", "Virginia Pearson", "Bryant Washburn"],
+	"genres": ["Comedy", "Family", "Fantasy"],
+	"title": "The Wizard of Oz",
+	"type": "movie",
+	"countries": ["USA"],
+	"runtime": 81,
+	"rated": "TV-G",
+	"year": 1925,
+	"poster": "http://ia.media-imdb.com/images/M/MV5BMTYxMzYxNDk2M15BMl5BanBnXkFtZTYwOTI4ODQ5._V1_SX300.jpg",
+	"awards": {
+		"text": "",
+		"nominations": 0,
+		"wins": 0
+	},
+	"plot": "Dorothy, heir to the Oz throne, must take it back from the wicked Prime Minister Kruel with the help of three farmhands."
+}

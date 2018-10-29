@@ -1,0 +1,6 @@
+{"query":{
+    "bool": {
+        "should": [
+            { "match_phrase": { "title": "Star trek" }}
+        ]
+}}}

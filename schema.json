@@ -1,194 +1,218 @@
 {
-  "settings": {
-    "index": {
-      "number_of_shards": 5,
-      "analysis": {
-        "analyzer": {
-          "custom_analyzer_en": {
-            "type": "custom",
-            "tokenizer": "standard",
-            "char_filter": ["html_striper", "french_char_stripper"],
-            "filter": ["standard", "lowercase", "asciifolding", "elision", "snowball"]
-          },
-          "custom_analyzer_fr": {
-            "type": "custom",
-            "tokenizer": "standard",
-            "char_filter": ["html_striper", "french_char_stripper"],
-            "filter": ["standard", "lowercase", "french_stemmer", "asciifolding", "french_elision", "french_snowball"]
-          },
-          "basic_analyzer": {
-            "type": "custom",
-            "tokenizer": "standard",
-            "char_filter": ["html_striper", "french_char_stripper"],
-            "filter": ["standard", "lowercase"]
-          },
-          "description_analyzer_fr": {
-            "type": "custom",
-            "tokenizer": "standard",
-            "char_filter": ["html_striper", "french_char_stripper"],
-            "filter": ["standard", "lowercase", "french_stop", "french_stemmer", "asciifolding", "french_elision", "french_snowball"]
-          },
-          "description_analyzer_en": {
-            "type": "custom",
-            "tokenizer": "standard",
-            "char_filter": ["html_striper", "french_char_stripper"],
-            "filter": ["standard", "lowercase", "stop", "stemmer", "asciifolding", "elision", "snowball"]
-          }
-        },
-        "filter": {
-          "snowball": {
-            "type": "snowball",
-            "language": "English"
-          },
-          "snowball_fr": {
-            "type": "snowball",
-            "language": "French"
-          },
-          "nGram": {
-            "type": "nGram",
-            "min_gram": 3,
-            "max_gram": 15
-          },
-          "french_snowball": {
-            "type": "snowball",
-            "language": "French"
-          },
-          "french_elision": {
-            "type": "elision",
-            "articles": ["l", "m", "t", "qu", "n", "s", "j", "d", "c", "jusqu", "quoiqu", "lorsqu", "puisqu"]
-          },
-          "french_stop": {
-            "type": "stop",
-            "stopwords": ["_french_"]
-          },
-          "french_stemmer": {
-            "type": "stemmer",
-            "language": "french"
-          }
-        },
-        "char_filter": {
-          "html_striper": {
-            "type": "html_strip"
-          },
-          "french_char_stripper": {
-            "type": "mapping",
-            "mappings": ["à => a", "À => A", "â => a", "Â => A", "é => e", "É => E", "ê => e", "Ê => E", "ë => e", "Ë => E", "è => e", "È => E", "î => i", "Î => I", "ï => i", "Ï => I", "ô => o", "Ô => O", "ö => o", "Ö => O", "û => u", "Ù => U", "ù => u", "Û => U", "ç => c", "Ç => C"]
-          }
-        }
-      }
-    }
-  },
-  "mappings": {
-    "movie": {
-      "dynamic": false,
-      "properties": {
-        "fields": {
+	"settings": {
+		"index": {
+			"number_of_shards": 5,
+			"analysis": {
+				"analyzer": {
+					"custom_analyzer_en": {
+						"type": "custom",
+						"tokenizer": "standard",
+						"char_filter": ["html_striper", "french_char_stripper"],
+						"filter": ["standard", "lowercase", "asciifolding", "elision", "snowball"]
+					},
+					"custom_analyzer_fr": {
+						"type": "custom",
+						"tokenizer": "standard",
+						"char_filter": ["html_striper", "french_char_stripper"],
+						"filter": ["standard", "lowercase", "french_stemmer", "asciifolding", "french_elision", "french_snowball"]
+					},
+					"basic_analyzer": {
+						"type": "custom",
+						"tokenizer": "standard",
+						"char_filter": ["html_striper", "french_char_stripper"],
+						"filter": ["standard", "lowercase"]
+					},
+					"description_analyzer_fr": {
+						"type": "custom",
+						"tokenizer": "standard",
+						"char_filter": ["html_striper", "french_char_stripper"],
+						"filter": ["standard", "lowercase", "french_stop", "french_stemmer", "asciifolding", "french_elision", "french_snowball"]
+					},
+					"description_analyzer_en": {
+						"type": "custom",
+						"tokenizer": "standard",
+						"char_filter": ["html_striper", "french_char_stripper"],
+						"filter": ["standard", "lowercase", "stop", "stemmer", "asciifolding", "elision", "snowball"]
+					}
+				},
+				"filter": {
+					"snowball": {
+						"type": "snowball",
+						"language": "English"
+					},
+					"snowball_fr": {
+						"type": "snowball",
+						"language": "French"
+					},
+					"nGram": {
+						"type": "nGram",
+						"min_gram": 3,
+						"max_gram": 15
+					},
+					"french_snowball": {
+						"type": "snowball",
+						"language": "French"
+					},
+					"french_elision": {
+						"type": "elision",
+						"articles": ["l", "m", "t", "qu", "n", "s", "j", "d", "c", "jusqu", "quoiqu", "lorsqu", "puisqu"]
+					},
+					"french_stop": {
+						"type": "stop",
+						"stopwords": ["_french_"]
+					},
+					"french_stemmer": {
+						"type": "stemmer",
+						"language": "french"
+					}
+				},
+				"char_filter": {
+					"html_striper": {
+						"type": "html_strip"
+					},
+					"french_char_stripper": {
+						"type": "mapping",
+						"mappings": ["à => a", "À => A", "â => a", "Â => A", "é => e", "É => E", "ê => e", "Ê => E", "ë => e", "Ë => E", "è => e", "È => E", "î => i", "Î => I", "ï => i", "Ï => I", "ô => o", "Ô => O", "ö => o", "Ö => O", "û => u", "Ù => U", "ù => u", "Û => U", "ç => c", "Ç => C"]
+					}
+				}
+			}
+		}
+	},
+	"mappings": {
+		"movie": {
+			"dynamic": "strict",
+			"properties": {
+				"actors": {
+					"type": "text",
+					"fields": {
+						"raw": {
+							"type": "keyword"
+						},
+						"text": {
+							"type": "text",
+							"analyzer": "custom_analyzer_en"
+						}
+					}
+				},
+        "writers": {
+					"type": "text",
+					"fields": {
+						"raw": {
+							"type": "keyword"
+						},
+						"text": {
+							"type": "text",
+							"analyzer": "custom_analyzer_en"
+						}
+					}
+				},
+				"director": {
+					"type": "text",
+					"fields": {
+						"raw": {
+							"type": "keyword"
+						},
+						"text": {
+							"type": "text",
+							"analyzer": "custom_analyzer_en"
+						}
+					}
+				},
+				"genres": {
+					"type": "text",
+					"fields": {
+						"raw": {
+							"type": "keyword"
+						},
+						"text": {
+							"type": "text",
+							"analyzer": "custom_analyzer_en"
+						}
+					}
+				},
+				"poster": {
+          "type": "text",
+					"fields": {
+						"raw": {
+							"type": "keyword"
+						},
+						"text": {
+							"type": "text",
+							"analyzer": "custom_analyzer_en"
+						}
+					}
+				},
+				"plot": {
+					"type": "text",
+					"fields": {
+						"raw": {
+							"type": "keyword"
+						},
+						"text": {
+							"type": "text",
+							"analyzer": "description_analyzer_en"
+						}
+					}
+				},
+        "countries": {
+					"type": "text",
+					"fields": {
+						"raw": {
+							"type": "keyword"
+						},
+						"text": {
+							"type": "text",
+							"analyzer": "custom_analyzer_en"
+						}
+					}
+				},
+        "rated": {
+					"type": "keyword"
+				},
+				"rank": {
+					"type": "long"
+				},
+				"rating": {
+					"type": "float"
+				},
+				"release_date": {
+					"type": "date"
+				},
+				"runtime": {
+					"type": "long"
+				},
+				"title": {
+					"type": "text",
+					"fields": {
+						"raw": {
+							"type": "keyword"
+						},
+						"text": {
+							"type": "text",
+							"analyzer": "custom_analyzer_en"
+						}
+					}
+				},
+				"year": {
+					"type": "long"
+				},
+        "awards": {
           "properties": {
-            "actors": {
-              "type": "text",
-              "fields": {
-                "raw": {
-                  "type": "keyword"
-                },
-                "text": {
-                  "type": "text",
-                  "analyzer": "custom_analyzer_en"
-                }
-              }
-            },
-            "directors": {
-              "type": "text",
-              "fields": {
-                "raw": {
-                  "type": "keyword"
-                },
-                "text": {
-                  "type": "text",
-                  "analyzer": "custom_analyzer_en"
-                }
-              }
-            },
-            "genres": {
-              "type": "text",
-              "fields": {
-                "raw": {
-                  "type": "keyword"
-                },
-                "text": {
-                  "type": "text",
-                  "analyzer": "custom_analyzer_en"
-                }
-              }
-            },
-            "poster": {
-              "type": "text",
-              "fields": {
-                "keyword": {
-                  "type": "keyword",
-                  "ignore_above": 256
-                }
-              }
-            },
-            "plot": {
-              "type": "text",
-              "fields": {
-                "raw": {
-                  "type": "keyword"
-                },
-                "text": {
-                  "type": "text",
-                  "analyzer": "description_analyzer_en"
-                }
-              }
-            },
-            "rank": {
-              "type": "long"
-            },
-            "rating": {
-              "type": "float"
-            },
-            "release_date": {
-              "type": "date"
-            },
-            "running_time_mins": {
-              "type": "long"
-            },
-            "title": {
-              "type": "text",
-              "fields": {
-                "raw": {
-                  "type": "keyword"
-                },
-                "text": {
-                  "type": "text",
-                  "analyzer": "custom_analyzer_en"
-                }
-              }
-            },
-            "year": {
-              "type": "long"
-            }
+            "text": {
+							"type": "keyword"
+						},
+            "nominations": {
+    					"type": "long"
+    				},
+            "wins": {
+    					"type": "long"
+    				}
           }
-        },
-        "id": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        },
-        "type": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        }
-      }
-    }
-  }
+				},
+    		"type": {
+    			"type": "keyword"
+    		}
+			}
+		}
+	}
 }

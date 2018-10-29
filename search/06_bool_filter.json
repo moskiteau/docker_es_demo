@@ -1,0 +1,21 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "director": "spielberg"
+          }
+        }
+      ],
+      "filter": {
+        "range": {
+          "awards.wins": {
+            "from": "39",
+            "to": "999"
+          }
+        }
+      }
+    }
+  }
+}

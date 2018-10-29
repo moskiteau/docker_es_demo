@@ -1,0 +1,7 @@
+"aggs": {
+        "statistics": {
+            "matrix_stats": {
+                "fields": ["awards.wins", "awards.nominations"]
+            }
+        }
+    }

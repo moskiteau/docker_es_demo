@@ -1,0 +1,10 @@
+{
+  "aggs" : {
+    "by_years" : {
+        "terms" : {"field" : "year"}
+    },
+    "by_runnint_time" : {
+        "terms" : {"field" : "year"}
+    },
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "query" : {
+        "match" : { "countries.raw" : "China" }
+    },
+    "aggs" : {
+        "all_products" : {
+            "global" : {},
+            "aggs" : {
+                "max_prize" : { "max" : { "field" : "awards.wins" } },
+                "years" : {
+                    "histogram" : {
+                        "field" : "year",
+                        "interval" : 10
+                    }
+                }
+            }
+        },
+        "china_awards": { "max" : { "field" : "awards.wins" } },
+        "years" : {
+            "histogram" : {
+                "field" : "year",
+                "interval" : 10
+            }
+        },
+        "significant_genre_types_china" : {
+            "significant_terms" : { "field" : "genres.raw" }
+        },
+        "keywords" : {
+            "significant_text" : { "field" : "plot" }
+        }
+    }
+}

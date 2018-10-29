@@ -1,0 +1,25 @@
+{
+	"aggs": {
+		"by_years": {
+			"terms": {
+				"field": "year"
+			}
+		},
+		"by_runnint_time": {
+			"terms": {
+				"field": "runtime"
+			}
+		},
+    "by_countries": {
+			"terms": {
+				"field": "countries.raw"
+			}
+		},
+		"avg_awards_won": {
+			"avg": {
+				"field": "awards.wins"
+			}
+		},
+    "max_awards_won" : { "max" : { "field" : "awards.wins" } }
+	}
+}
